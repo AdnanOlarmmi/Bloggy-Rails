@@ -11,10 +11,8 @@
 
 <div id="comments">
   <h1>Comments</h1>
-  <% @post.comments.each do |comment| %>
-    <div>
-      <strong><%= comment.name %> says: </strong>
-      <%= comment.content %>
-    </div>
-  <% end %>
+    <%= render @post.comments
+ %>
+ <h2> Add a Comment </h2>
+ <%= render partial: "comments/form", locals: {comment: @post.comments.new} %>
 </div>
