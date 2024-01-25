@@ -1,10 +1,11 @@
 class PagesController < ApplicationController
+    before_action :set_page, only: [:show, :edit, :update, :destroy]
+
     def index
         @pages = Page.all
     end
 
     def show
-        @page = Page.find(params[:id])
         # render plain: @page.body
     end
 
@@ -31,11 +32,16 @@ class PagesController < ApplicationController
     def destroy
         @page = Page.find(params[:id])
         @page.destroy
+        redirect_to pages_path
     end
 
     private
     #only used in pages_controller class
         def page_params
             params.require(:page).permit(:title, :body, :slug)
+        end
+
+        def set_page
+            @page = Page.find(params[:id])
         end
 end
