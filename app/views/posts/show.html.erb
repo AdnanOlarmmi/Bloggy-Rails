@@ -8,3 +8,13 @@
 
   <%= button_to "Destroy this post", @post, method: :delete %>
 </div>
+
+<div id="comments">
+  <h1>Comments</h1>
+  <% @post.comments.each do |comment| %>
+    <div>
+      <strong><%= comment.name %> says: </strong>
+      <%= comment.content %>
+    </div>
+  <% end %>
+</div>
