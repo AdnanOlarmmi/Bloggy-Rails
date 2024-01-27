@@ -1,8 +1,8 @@
 <div>
-    <strong><%= comment.name %> says: </strong>
-    <%= comment.content %>
-    <div class="comment-admin"> 
-        <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
-        <%= button_to "Destroy this Comment", [@post, comment], method: :delete %>
-    </div>
+	<strong><%= comment.name %> says: </strong>
+	<%= comment.content %>
+	<div class="comment-admin">
+		<%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+		<%= button_to "Destroy this Comment", [@post, comment], method: :delete %>
+	</div>
 </div>
